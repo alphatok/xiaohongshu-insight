@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新标签页 - 小红书</title>
+    <!-- 扩展页面 favicon，使用扩展本地图标（路径相对于扩展根目录） -->
+    <!-- ⚠️ 不能用外部 CDN 链接：chrome-extension:// 页面受 CSP 限制，外部资源会加载失败，
+         Chrome 会回退到 manifest icons 并套上白色背景，导致标签页出现白边 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png">
+    <style>
+      /* 全局重置，确保 newtab 撑满整个视口 */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <script type="module" crossorigin src="/chunks/newtab-DiUeURmk.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/newtab-C_Sq1UPF.css">
+  </head>
+  <body>
+    <!--
+      iframe 提前到 HTML 解析阶段开始加载，早于 Vue JS Bundle 的下载与执行。
+      浏览器解析到此标签时立即发起对小红书主站的网络请求，与 JS Bundle 下载完全并行，
+      节省 60~200ms 的冷启动延迟（JS Bundle 加载 + Vue 初始化耗时）。
+
+      放在 #app 之外：Vue mount 时会清空 #app 内容，放外面可避免 iframe 被销毁重建。
+      https://www.xiaohongshu.com/browser_extension 是构建时占位符，由 wxt.config.ts 的 inject-xhs-origin 插件替换为实际 URL。
+
+      初始 opacity:0 + pointer-events:none：避免白屏期间用户误操作；
+      Vue mount 后由 onIframeLoad 回调在 iframe 加载完成时设为可见。
+    -->
+    <iframe id="xhs-newtab-frame" src="https://www.xiaohongshu.com/browser_extension" allow="clipboard-read; clipboard-write" style="position:fixed;inset:0;width:100%;height:100%;border:none;z-index:0;opacity:0;pointer-events:none;transition:opacity 0.25s;"></iframe>
+
+    <!--
+      Vue 覆盖层：仅管理横幅（接管提示）和错误状态覆盖层。
+      pointer-events:none 确保透传所有鼠标事件到下方 iframe，用户可正常操作小红书页面。
+      横幅和错误层在 App.vue 的 CSS 中单独设置 pointer-events:auto 以恢复交互。
+    -->
+    <div id="app" style="position:fixed;inset:0;z-index:1;pointer-events:none;"></div>
+
+  </body>
+</html>

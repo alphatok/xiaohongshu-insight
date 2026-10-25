@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新标签页</title>
+    <!-- 扩展页面 favicon，使用扩展本地图标 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icon-16.png">
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 100%; height: 100%; }
+    </style>
+    <script type="module" src="/newtab.js"></script>
+    <link rel="stylesheet" href="/newtab.css">
+  </head>
+  <body>
+    <!--
+      关键优化：iframe 提前到 HTML 解析阶段加载，与 JS Bundle 下载并行
+      节省 60~200ms 冷启动延迟。放在 #app 之外避免被 Vue mount 清空。
+      初始 opacity:0 + pointer-events:none：避免白屏期间用户误操作
+    -->
+    <iframe
+      id="newtab-frame"
+      src="https://www.target-domain.com/browser_extension"
+      allow="clipboard-read; clipboard-write"
+      style="position:fixed; inset:0; width:100%; height:100%; border:none; z-index:0; opacity:0; pointer-events:none; transition:opacity 0.25s;"
+    ></iframe>
+
+    <!--
+      Vue 覆盖层：仅管理横幅和错误状态
+      pointer-events:none 确保透传所有鼠标事件到下方 iframe
+      横幅和错误层单独设置 pointer-events:auto 以恢复交互
+    -->
+    <div id="app" style="position:fixed; inset:0; z-index:1; pointer-events:none;"></div>
+  </body>
+</html>
