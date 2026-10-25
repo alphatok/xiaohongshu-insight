@@ -2,6 +2,10 @@
 test-results/
 skill-review/
 
+# Build artifacts
+dist/
+covers/
+
 # Ignore OS files
 .DS_Store
 Thumbs.db

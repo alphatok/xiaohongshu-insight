@@ -1,0 +1,122 @@
+{
+  "source": "https://aibook.ren/archives/ai-use-prompt-for-xiaohongshu",
+  "origin": "https://mp.weixin.qq.com/s/OFCgFrXNQgIT2ho3V-4Oag",
+  "license": "CC BY 4.0",
+  "base_prompts": [
+    {
+      "file": "base/wechat-cover.md",
+      "title": "公众号封面提示词"
+    },
+    {
+      "file": "base/xiaohongshu-cover.md",
+      "title": "小红书封面生成提示词"
+    },
+    {
+      "file": "base/style-extractor.md",
+      "title": "风格生成提示词"
+    }
+  ],
+  "styles": [
+    {
+      "id": "01",
+      "slug": "soft-tech-card",
+      "name": "柔和科技卡片风",
+      "prompt": "styles/01-soft-tech-card/prompt.md",
+      "previews": [
+        "styles/01-soft-tech-card/preview-1.png",
+        "styles/01-soft-tech-card/preview-2.png"
+      ]
+    },
+    {
+      "id": "02",
+      "slug": "business-news-card",
+      "name": "现代商务资讯卡片风",
+      "prompt": "styles/02-business-news-card/prompt.md",
+      "previews": [
+        "styles/02-business-news-card/preview-1.png",
+        "styles/02-business-news-card/preview-2.png"
+      ]
+    },
+    {
+      "id": "03",
+      "slug": "flowing-tech-blue",
+      "name": "流动科技蓝风格",
+      "prompt": "styles/03-flowing-tech-blue/prompt.md",
+      "previews": [
+        "styles/03-flowing-tech-blue/preview-1.png",
+        "styles/03-flowing-tech-blue/preview-2.png"
+      ]
+    },
+    {
+      "id": "04",
+      "slug": "minimal-grid",
+      "name": "极简格栅主义封面风格",
+      "prompt": "styles/04-minimal-grid/prompt.md",
+      "previews": [
+        "styles/04-minimal-grid/preview-1.png",
+        "styles/04-minimal-grid/preview-2.png"
+      ]
+    },
+    {
+      "id": "05",
+      "slug": "digital-ticket",
+      "name": "数字极简票券风",
+      "prompt": "styles/05-digital-ticket/prompt.md",
+      "previews": [
+        "styles/05-digital-ticket/preview-1.png",
+        "styles/05-digital-ticket/preview-2.png"
+      ]
+    },
+    {
+      "id": "06",
+      "slug": "neo-constructivist",
+      "name": "新构成主义教学风",
+      "prompt": "styles/06-neo-constructivist/prompt.md",
+      "previews": [
+        "styles/06-neo-constructivist/preview-1.png",
+        "styles/06-neo-constructivist/preview-2.png"
+      ]
+    },
+    {
+      "id": "07",
+      "slug": "luxury-nature",
+      "name": "奢华自然意境风",
+      "prompt": "styles/07-luxury-nature/prompt.md",
+      "previews": [
+        "styles/07-luxury-nature/preview-1.png",
+        "styles/07-luxury-nature/preview-2.png"
+      ]
+    },
+    {
+      "id": "08",
+      "slug": "industrial-rebel",
+      "name": "新潮工业反叛风",
+      "prompt": "styles/08-industrial-rebel/prompt.md",
+      "previews": [
+        "styles/08-industrial-rebel/preview-1.png",
+        "styles/08-industrial-rebel/preview-2.png"
+      ]
+    },
+    {
+      "id": "09",
+      "slug": "soft-cute-card",
+      "name": "软萌知识卡片风",
+      "prompt": "styles/09-soft-cute-card/prompt.md",
+      "previews": [
+        "styles/09-soft-cute-card/preview-1.png",
+        "styles/09-soft-cute-card/preview-2.png"
+      ]
+    },
+    {
+      "id": "10",
+      "slug": "business-info-card",
+      "name": "商务简约信息卡片风",
+      "prompt": "styles/10-business-info-card/prompt.md",
+      "previews": [
+        "styles/10-business-info-card/preview-1.png",
+        "styles/10-business-info-card/preview-2.png",
+        "styles/10-business-info-card/preview-3.png"
+      ]
+    }
+  ]
+}
